@@ -5,92 +5,77 @@ import pytesseract
 from PIL import Image
 
 def clean_text(text):
-    """
-    Basic cleanup of OCR text.
-    Removes excessive blank lines and cleans up common OCR noise.
-    """
-    # Remove multiple blank lines
     text = re.sub(r'\n{3,}', '\n\n', text)
-    # Strip leading/trailing whitespaces per line
     lines = [line.strip() for line in text.split('\n')]
-    # Join back
     text = '\n'.join(lines)
     return text.strip()
 
 def pdf_to_markdown(pdf_path, output_md_path):
-    """
-    Reads a PDF, extracts each page as an image, runs OCR,
-    and writes the extracted text into a Markdown file.
-    """
-    print(f"Processing: {pdf_path}")
-
-    # Ensure output directory exists
     os.makedirs(os.path.dirname(output_md_path), exist_ok=True)
 
-    # Open the PDF document
     doc = pymupdf.open(pdf_path)
     md_content = f"# Extracted Content from {os.path.basename(pdf_path)}\n\n"
 
     for page_num in range(len(doc)):
-        print(f"  -> Page {page_num + 1}/{len(doc)}")
+        print(f"  -> {pdf_path} - Page {page_num + 1}/{len(doc)}")
         page = doc.load_page(page_num)
 
-        # 1. Split & Snap: Render page to image at ~300 DPI
         zoom_x = 3.0
         zoom_y = 3.0
         mat = pymupdf.Matrix(zoom_x, zoom_y)
         pix = page.get_pixmap(matrix=mat, alpha=False)
 
-        # Convert fitz pixmap to PIL Image
         mode = "RGB" if pix.n == 3 else "L"
         img = Image.frombytes(mode, [pix.width, pix.height], pix.samples)
 
-        # 2. Scan: Apply Tesseract OCR
-        # Note: We are using English language by default, but Bengali models can be added.
         page_text = pytesseract.image_to_string(img)
-
-        # 3. Parse: Clean and format text
         cleaned_text = clean_text(page_text)
 
         md_content += f"## Page {page_num + 1}\n\n"
         md_content += cleaned_text + "\n\n"
 
-    # Write to Markdown file
     with open(output_md_path, 'w', encoding='utf-8') as f:
         f.write(md_content)
 
-    print(f"Finished processing. Output saved to {output_md_path}\n")
     return output_md_path
 
+import multiprocessing
+
+def _process_single_file(args):
+    pdf_path, output_md_path = args
+    if os.path.exists(output_md_path):
+        return output_md_path
+    try:
+        return pdf_to_markdown(pdf_path, output_md_path)
+    except Exception as e:
+        print(f"Error processing {pdf_path}: {e}")
+        return None
+
 def process_all_pdfs(source_dir=".", output_dir="output"):
-    """
-    Walks through the source directory to find all PDF files and applies the OCR pipeline,
-    maintaining the chronological directory architecture in the output folder.
-    """
+    tasks = []
     for root, _, files in os.walk(source_dir):
-        # Skip the output directory itself to avoid recursive processing if run multiple times
-        if output_dir in root:
+        if output_dir in root or ".git" in root:
             continue
 
         for file in files:
             if file.lower().endswith(".pdf"):
                 pdf_path = os.path.join(root, file)
-
-                # Determine the relative path to maintain architecture in the output
                 rel_path = os.path.relpath(pdf_path, source_dir)
-                output_md_path = os.path.join(output_dir, rel_path).replace(".pdf", ".md")
+                base, _ = os.path.splitext(rel_path)
+                output_md_path = os.path.join(output_dir, base + ".md")
+                tasks.append((pdf_path, output_md_path))
 
-                # Process the file
-                pdf_to_markdown(pdf_path, output_md_path)
+    # Use standard multiprocessing CPU count for maximum speed
+    num_workers = multiprocessing.cpu_count()
+    with multiprocessing.Pool(processes=num_workers) as pool:
+        results = pool.map(_process_single_file, tasks)
+
+    print(f"Finished bulk processing. Processed {len([r for r in results if r])} files.")
 
 if __name__ == "__main__":
     import sys
-
-    # Allow passing a specific directory or use the current directory
     source_directory = sys.argv[1] if len(sys.argv) > 1 else "."
 
     print(f"Starting batch process on directory: {source_directory}")
     print("WARNING: Processing all PDFs can take a significant amount of time.")
-
-    # Process all PDFs in the repository
     process_all_pdfs(source_directory, "output")
