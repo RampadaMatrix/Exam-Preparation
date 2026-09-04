@@ -108,23 +108,37 @@ export function extractDiagramsFromMarkdown(markdown: string): ParsedDiagramInfo
  * Locate markdown file for paperId
  */
 export function getParsedMarkdownPath(paperId: string): string | null {
+  const root = path.join(process.cwd(), 'parsed_papers');
+  
+  // Extract potential year if paperId begins with year like 2024- or 2025_
+  const yearMatch = paperId.match(/^(20\d\d)[-_]/);
+  const detectedYear = yearMatch ? yearMatch[1] : null;
+  const strippedId = detectedYear ? paperId.replace(new RegExp(`^${detectedYear}[-_]`), '') : paperId;
+
   const candidates = [
-    path.join(process.cwd(), 'parsed_papers', `${paperId}.md`),
-    path.join(process.cwd(), 'parsed_papers', '2026', `${paperId.replace('2026-', '')}.md`),
-    path.join(process.cwd(), 'parsed_papers', '2025', `${paperId.replace('2025-', '')}.md`),
-    path.join(process.cwd(), 'parsed_papers', 'Compilations_2017_2025', `${paperId}.md`),
-  ];
+    path.join(root, `${paperId}.md`),
+    detectedYear ? path.join(root, detectedYear, `${paperId}.md`) : '',
+    detectedYear ? path.join(root, detectedYear, `${strippedId}.md`) : '',
+    detectedYear ? path.join(root, detectedYear, `${detectedYear}-${strippedId}.md`) : '',
+    path.join(root, '2026', `${paperId}.md`),
+    path.join(root, '2026', `${paperId.replace('2026-', '')}.md`),
+    path.join(root, '2025', `${paperId}.md`),
+    path.join(root, '2025', `${paperId.replace('2025-', '')}.md`),
+    path.join(root, '2024', `${paperId}.md`),
+    path.join(root, '2024', `${paperId.replace('2024-', '')}.md`),
+    path.join(root, 'Compilations_2017_2025', `${paperId}.md`),
+  ].filter(Boolean);
 
   for (const c of candidates) {
     if (fs.existsSync(c)) return c;
   }
 
-  // Also check normalized names
-  const allParsed = walkParsedFiles(path.join(process.cwd(), 'parsed_papers'));
+  // Also check normalized names across all markdown files
+  const allParsed = walkParsedFiles(root);
   const normId = paperId.toLowerCase().replace(/[^a-z0-9]/g, '');
   for (const file of allParsed) {
     const base = path.basename(file, '.md').toLowerCase().replace(/[^a-z0-9]/g, '');
-    if (base.includes(normId) || normId.includes(base)) {
+    if (base === normId || base.includes(normId) || normId.includes(base)) {
       return file;
     }
   }

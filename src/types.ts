@@ -11,6 +11,7 @@ export type PaperCategory =
   | 'Compilations (2017–2025)'
   | 'Madhyamik 2026'
   | 'Madhyamik 2025'
+  | 'Madhyamik 2017–2024'
   | 'Archives (2010–2016)';
 
 export type Medium = 'Bengali' | 'English' | 'Both / Standard';

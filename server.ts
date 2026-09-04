@@ -62,15 +62,30 @@ async function startServer() {
           if (fs.statSync(p).isDirectory()) {
             walk(p);
           } else if (it.endsWith('.md')) {
-            const id = it.replace('.md', '');
+            const rawId = it.replace('.md', '');
             const content = fs.readFileSync(p, 'utf8');
             const diagrams = extractDiagramsFromMarkdown(content);
             const pageMatches = content.match(/## Page \d+/g) || [];
-            result[id] = {
+            const info = {
               isParsed: true,
               diagramsCount: diagrams.length,
               pageCount: pageMatches.length || 1,
             };
+            result[rawId] = info;
+            result[rawId.toLowerCase()] = info;
+            result[rawId.toLowerCase().replace(/[^a-z0-9]/g, '')] = info;
+
+            // Handle year prefix or suffix patterns
+            const yrMatch = rawId.match(/^(20\d\d)[-_](.+)$/);
+            if (yrMatch) {
+              const yr = yrMatch[1];
+              const rest = yrMatch[2];
+              result[`${rest}_${yr}`] = info;
+              result[`${rest}-${yr}`] = info;
+              result[`${yr}_${rest}`] = info;
+              result[`${yr}-${rest}`] = info;
+              result[rest.toLowerCase().replace(/[^a-z0-9]/g, '')] = info;
+            }
           }
         }
       };

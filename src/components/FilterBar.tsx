@@ -37,10 +37,11 @@ const SUBJECTS: Subject[] = [
 
 const CATEGORIES: string[] = [
   'All',
-  'Compilations (2017–2025)',
   'Madhyamik 2026',
   'Madhyamik 2025',
-  'Archives (2010–2016)'
+  'Madhyamik 2017–2024',
+  'Archives (2010–2016)',
+  'Compilations (2017–2025)',
 ];
 
 export const FilterBar: React.FC<FilterBarProps> = ({

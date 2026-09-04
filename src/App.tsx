@@ -80,6 +80,7 @@ export const App: React.FC = () => {
   // Statistics counts
   const compilationCount = useMemo(() => papers.filter((p) => p.category === 'Compilations (2017–2025)').length, [papers]);
   const latestCount = useMemo(() => papers.filter((p) => p.category === 'Madhyamik 2026').length, [papers]);
+  const recentCount = useMemo(() => papers.filter((p) => p.category === 'Madhyamik 2017–2024').length, [papers]);
   const historicalCount = useMemo(() => papers.filter((p) => p.category === 'Archives (2010–2016)').length, [papers]);
 
   const practicedCount = useMemo(() => {
@@ -226,7 +227,7 @@ export const App: React.FC = () => {
               Official Madhyamik Question Papers (2010 – 2026)
             </h2>
             <p className="text-xs sm:text-sm text-blue-100/90 leading-relaxed">
-              Explore 80 verified board examination papers spanning 17 examination cycles. Includes complete 2017–2025 multi-year subject compilations, latest 2026 examination papers in Bengali and English mediums, and historical archives from 2010 to 2016.
+              Explore 136 organized board examination papers spanning 17 examination cycles. Easily filter by year and subject (e.g. 2024-Geography), read digitized markdown papers with interactive SVG diagrams, or view original PDFs.
             </p>
 
             {/* Quick launch for digitized papers with vector diagrams */}
@@ -237,30 +238,39 @@ export const App: React.FC = () => {
               </span>
               <button
                 onClick={() => {
-                  const p = papers.find((item) => item.filename === 'Life_Science_English.pdf');
+                  const p = papers.find((item) => item.id === '2024-Geography');
                   if (p) setActivePaperForMarkdown(p);
                 }}
-                className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium transition cursor-pointer flex items-center gap-1.5 backdrop-blur-xs"
+                className="px-2.5 py-1 rounded-lg bg-emerald-500/30 hover:bg-emerald-500/40 border border-emerald-400/40 text-emerald-100 font-medium transition cursor-pointer flex items-center gap-1.5 backdrop-blur-xs shadow-xs"
               >
-                <span>🔬 Life Science 2026 (Neuron & Chromosome SVGs)</span>
+                <span>🌍 2024 - Geography (Interactive India Map SVG)</span>
               </button>
               <button
                 onClick={() => {
-                  const p = papers.find((item) => item.filename === 'Mathematics_English.pdf');
+                  const p = papers.find((item) => item.id === '2024-Mathematics');
                   if (p) setActivePaperForMarkdown(p);
                 }}
                 className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium transition cursor-pointer flex items-center gap-1.5 backdrop-blur-xs"
               >
-                <span>📐 Mathematics 2026 (Geometric Circle SVG)</span>
+                <span>📐 2024 - Mathematics (Circle Theorem SVG)</span>
               </button>
               <button
                 onClick={() => {
-                  const p = papers.find((item) => item.filename === 'Physical_Science_English.pdf');
+                  const p = papers.find((item) => item.id === '2024-Physical_Science');
                   if (p) setActivePaperForMarkdown(p);
                 }}
                 className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium transition cursor-pointer flex items-center gap-1.5 backdrop-blur-xs"
               >
-                <span>⚡ Physical Science 2026 (Optics & Circuits SVGs)</span>
+                <span>⚡ 2024 - Physical Science (Circuits SVG)</span>
+              </button>
+              <button
+                onClick={() => {
+                  const p = papers.find((item) => item.filename === 'Life_Science_English.pdf' || item.id === '2026-Life_Science_English');
+                  if (p) setActivePaperForMarkdown(p);
+                }}
+                className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium transition cursor-pointer flex items-center gap-1.5 backdrop-blur-xs"
+              >
+                <span>🔬 2026 - Life Science (Neuron &amp; Eye SVGs)</span>
               </button>
             </div>
           </div>
@@ -275,6 +285,7 @@ export const App: React.FC = () => {
           totalPapers={papers.length}
           compilationCount={compilationCount}
           latestCount={latestCount}
+          recentCount={recentCount}
           historicalCount={historicalCount}
           onSelectCategory={(cat) => {
             setSelectedCategory(cat);
