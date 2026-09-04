@@ -1,0 +1,7 @@
+.venv/
+.pipeline-output/
+pipeline-output.tar.gz
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
