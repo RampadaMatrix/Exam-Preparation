@@ -151,3 +151,19 @@ Papers under the pre-2017 curriculum pattern:
 | **Life Science** | [Life_Science.pdf](./2010_2016_Archives/2016/Life_Science.pdf) | 1.59 MB |
 | **Mathematics** | [Mathematics.pdf](./2010_2016_Archives/2016/Mathematics.pdf) | 1.91 MB |
 | **Physical Science** | [Physical_Science.pdf](./2010_2016_Archives/2016/Physical_Science.pdf) | 2.17 MB |
+
+## 5. Auditable PDF-to-Markdown pipeline
+
+The repository includes an evidence-first parser for the complete archive. It records SHA-256 source checksums, identifies chronology, renders page snapshots, uses embedded text when reliable and Bengali/English OCR otherwise, and writes page-level raw text, confidence, and provenance alongside derived Markdown. See [the architecture](./docs/architecture.md) for the output contract and diagram.
+
+```bash
+# One-time project setup is defined in .hoplite/settings.json and runs automatically
+
+# Pilot extraction of the first three PDFs
+.venv/bin/python -m document_pipeline --max-pdfs 3 --output .pipeline-output/pilot
+
+# Full archive extraction (82 PDFs / 678 pages)
+.venv/bin/python -m document_pipeline --output .pipeline-output/full
+```
+
+Review `.pipeline-output/full/review.md` before treating the Markdown as publication-ready. Low-confidence OCR remains linked to its page snapshot instead of being silently “corrected.”
