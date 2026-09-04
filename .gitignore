@@ -5,3 +5,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 
+# Hoplite runtime state (thread transcripts, archives) — keep settings.json tracked
+.hoplite/attachments/
+.hoplite/archive/
+
