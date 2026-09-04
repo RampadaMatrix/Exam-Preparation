@@ -93,17 +93,4 @@ if __name__ == "__main__":
     print("WARNING: Processing all PDFs can take a significant amount of time.")
 
     # Process all PDFs in the repository
-    # process_all_pdfs(source_directory, "output")
-
-    # For demonstration/testing in this environment, we just run on one file.
-    # To run on all files, uncomment the process_all_pdfs line above.
-
-    sample_pdf = "2025/Bengali.pdf"
-    output_md = "output/2025/Bengali.md"
-
-    if os.path.exists(sample_pdf):
-        print(f"\n--- Running Demo on {sample_pdf} ---")
-        pdf_to_markdown(sample_pdf, output_md)
-        print("Note: To run on the entire archive, uncomment 'process_all_pdfs' in the script.")
-    else:
-        print(f"Error: Sample PDF {sample_pdf} not found.")
+    process_all_pdfs(source_directory, "output")
