@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Papertrail · Madhyamik archive</title>
+  <meta name="description" content="A searchable, evidence-linked archive of West Bengal Madhyamik question papers.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">
+      <span class="brand-mark">P</span>
+      <span><strong>Papertrail</strong><small>WBBSE / MADHYAMIK ARCHIVE</small></span>
+    </a>
+    <a class="header-link" href="/content/source-segments.json">Boundary notes <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Evidence-first exam library</div>
+      <h1>Find the paper<br><em>you need.</em></h1>
+      <p class="hero-copy">Years, subjects, and paper versions — organized from the archive into a calm, searchable study shelf.</p>
+      <div class="stats" id="stats" aria-label="Archive totals"></div>
+    </section>
+
+    <section class="library-shell" aria-label="Question paper library">
+      <div class="toolbar">
+        <label class="search-wrap" for="search">
+          <span class="search-icon">⌕</span>
+          <input id="search" type="search" placeholder="Search subject, year, or paper…" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <button class="reset-button" id="reset" type="button">Reset filters</button>
+      </div>
+
+      <div class="filter-grid">
+        <label>YEAR<select id="year-filter"><option value="">All years</option></select></label>
+        <label>SUBJECT<select id="subject-filter"><option value="">All subjects</option></select></label>
+        <label>MEDIUM<select id="medium-filter"><option value="">All media</option></select></label>
+        <label>STATUS<select id="status-filter"><option value="">All records</option><option value="exact">Exact source</option><option value="reviewed-marker">Boundary reviewed</option><option value="needs-review">Boundary review</option></select></label>
+      </div>
+
+      <div class="results-head"><div><span class="results-count" id="results-count">Loading papers…</span><span class="results-label"> in the shelf</span></div><button class="view-toggle" id="view-toggle" type="button" aria-label="Toggle compact view">Compact view</button></div>
+      <div class="paper-grid" id="paper-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden><span>∅</span><h2>No papers found</h2><p>Try clearing a filter or searching for another subject.</p></div>
+    </section>
+  </main>
+
+  <dialog id="paper-dialog" class="paper-dialog">
+    <button class="dialog-close" id="dialog-close" type="button" aria-label="Close paper details">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+  <script src="/app.js" defer></script>
+</body>
+</html>

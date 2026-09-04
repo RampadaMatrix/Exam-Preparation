@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 
 from document_pipeline.cli import SourceMetadata, logical_units, markdown_document, question_markdown, source_metadata, validate_options
+from document_pipeline.organize import build_records
 
 
 class PipelineUnitTests(unittest.TestCase):
@@ -30,6 +31,16 @@ class PipelineUnitTests(unittest.TestCase):
         metadata = source_metadata(Path("2025/English.pdf"), Path("."), 13)
         self.assertEqual(metadata.medium, "English")
 
+    def test_bilingual_filename_keeps_subject_and_medium_separate(self):
+        metadata = source_metadata(Path("2026/Geography_Bengali.pdf"), Path("."), 10)
+        self.assertEqual(metadata.subject, "Geography")
+        self.assertEqual(metadata.medium, "Bengali")
+
+    def test_bengali_paper_suffix_remains_a_paper_identifier(self):
+        metadata = source_metadata(Path("2010_2016_Archives/2010/Bengali_Paper_1.pdf"), Path("."), 3)
+        self.assertEqual(metadata.subject, "Bengali")
+        self.assertEqual(metadata.paper, "1")
+
     def test_single_document_remains_one_unit_when_boundary_is_uncertain(self):
         metadata = SourceMetadata("Compilations_2017_2025/English_2017_2025.pdf", "compilation", None, "English", "English", None, "a" * 64, 10, 2, "2017–2025")
         pages = [
@@ -51,6 +62,26 @@ class PipelineUnitTests(unittest.TestCase):
         args = argparse.Namespace(dpi=0, max_pdfs=None, workers=1)
         with self.assertRaises(SystemExit):
             validate_options(args)
+
+    def test_catalog_keeps_unproven_compilation_years_empty(self):
+        compilation = {
+            "source": "Compilations_2017_2025/Geography_2017_2025.pdf",
+            "category": "compilation", "year": None, "period": "2017–2025",
+            "medium": None, "subject": "Geography", "paper": None,
+            "sha256": "c" * 64, "pages": 31,
+        }
+        paper_one = {
+            "source": "2010_2016_Archives/2010/Bengali_Paper_1.pdf",
+            "category": "archive", "year": 2010, "period": None,
+            "medium": "Bengali", "subject": "Bengali", "paper": "1",
+            "sha256": "d" * 64, "pages": 3,
+        }
+        paper_two = {**paper_one, "source": "2010_2016_Archives/2010/Bengali_Paper_2.pdf", "paper": "2", "sha256": "e" * 64}
+        records, _ = build_records({"documents": [{"source": source} for source in [compilation, paper_one, paper_two]]})
+        by_id = {record["id"]: record for record in records}
+        self.assertEqual(by_id["2017-geography-main"]["sources"][0]["pages"], [])
+        self.assertEqual(by_id["2024-geography-main"]["sources"][0]["pages"], list(range(16, 24)))
+        self.assertEqual({by_id["2010-bengali-paper-1"]["paper"], by_id["2010-bengali-paper-2"]["paper"]}, {"paper-1", "paper-2"})
 
 
 if __name__ == "__main__":

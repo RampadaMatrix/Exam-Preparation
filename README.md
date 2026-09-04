@@ -1,6 +1,6 @@
 # West Bengal Board (WBBSE) Madhyamik Question Papers (2010 – 2026)
 
-Comprehensive collection of previous years' Madhyamik (Class 10) board examination question papers covering **17 examination cycles (2010 to 2026)** across all subjects.
+Comprehensive collection of previous years' Madhyamik (Class 10) board examination question papers covering **16 available examination cycles (2010 to 2026)** across all subjects. The archive has no 2021 source, so the chronology intentionally skips that year.
 
 > **Total Downloaded Files:** 82 PDFs  
 > **Total Archive Size:** ~251.4 MB  
@@ -167,3 +167,25 @@ The repository includes an evidence-first parser for the complete archive. It re
 ```
 
 Review `.pipeline-output/full/review.md` before treating the Markdown as publication-ready. Low-confidence OCR remains linked to its page snapshot instead of being silently “corrected.”
+
+## 6. Organized paper library and website
+
+The normalized public library is organized by the canonical exam identity rather than by source PDF:
+
+```text
+content/papers/<year>/<subject>/<paper>.md
+```
+
+There are **114 catalog records** covering 2010–2020, 2022–2026. Each record has stable `exam_year`, `subject`, `medium`, and `paper` metadata, plus source PDF checksums and page-level evidence. The seven 2017–2025 compilation PDFs are represented as annual records; pages with a defensible rendered boundary are included, while uncertain boundaries remain explicitly marked `needs-review` instead of being silently assigned to the wrong year. No 2021 paper is fabricated because no 2021 source exists in the archive.
+
+Run the organizer after a full extraction:
+
+```bash
+.venv/bin/python -m document_pipeline.organize \
+  --input .pipeline-output/full \
+  --content content/papers \
+  --website-data website/data/papers.json \
+  --segments content/source-segments.json
+```
+
+The static Papertrail website is in [`website/`](./website/). Start it with the project Preview command, or run `.venv/bin/python -m document_pipeline.site_server --root . --port 3000`; then filter by year, subject, medium, status, or search text. Select **View record** to open the normalized Markdown and its source PDF.

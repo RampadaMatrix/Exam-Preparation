@@ -9,10 +9,14 @@
 			"enabled": true,
 			"command": "if ! command -v tesseract >/dev/null 2>&1; then apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq tesseract-ocr; fi && if ! tesseract --list-langs 2>/dev/null | grep -qx ben; then apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq tesseract-ocr-ben; fi && if ! tesseract --list-langs 2>/dev/null | grep -qx eng; then apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq tesseract-ocr-eng; fi && python3 -m venv .venv && .venv/bin/pip install --disable-pip-version-check --quiet -r requirements.txt"
 		},
-		"run": {
-			"enabled": true,
-			"command": ".venv/bin/python -m document_pipeline --help"
-		},
+    "run": {
+      "enabled": true,
+      "command": ".venv/bin/python -m document_pipeline.site_server --root . --port 3000"
+    },
+    "organize": {
+      "enabled": true,
+      "command": ".venv/bin/python -m document_pipeline.organize --input .pipeline-output/full --content content/papers --website-data website/data/papers.json --segments content/source-segments.json"
+    },
 		"archive": {
 			"enabled": true,
 			"command": "tar -czf pipeline-output.tar.gz .pipeline-output"

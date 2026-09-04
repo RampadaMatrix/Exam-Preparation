@@ -13,6 +13,8 @@ flowchart LR
   F --> H[Question and marks parser]
   G --> H
   H --> I[Chronological Markdown]
+  I --> L[Year / subject / medium paper catalog]
+  L --> M[Searchable static website]
   D --> J[Page evidence JSON]
   F --> J
   G --> J
@@ -23,6 +25,8 @@ flowchart LR
 ## Output contract
 
 Each source PDF produces `document.md`, `evidence.json`, page-level raw text, and optional PNG snapshots under `.pipeline-output/documents/<source path>/`. The top-level `manifest.json` is ordered by examination year, subject, and source path; multi-year compilations are labeled `2017–2025`; `chronology.md` is the human-readable index; `review.md` lists low-confidence pages and unresolved metadata.
+
+`document_pipeline.organize` turns that source-oriented evidence into one canonical record per exam year, subject, and paper. It writes `content/papers/<year>/<subject>/<paper>.md`, `content/source-segments.json`, and `website/data/papers.json`. Known compilation boundaries are preserved with their page ranges; uncertain boundaries produce a visible `needs-review` record rather than guessed chronology. The website reads only the compact catalog and opens the normalized Markdown record on demand.
 
 `evidence.json` records the source checksum, extraction mode, OCR confidence, raw-text path, snapshot path, and logical paper unit. This makes a correction traceable back to the exact source page.
 

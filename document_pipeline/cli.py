@@ -34,6 +34,7 @@ SUBJECTS = (
     "Mathematics",
     "Physical_Science",
 )
+SUBJECTS_BY_LENGTH = tuple(sorted(SUBJECTS, key=len, reverse=True))
 
 
 @dataclass(frozen=True)
@@ -81,7 +82,6 @@ def source_metadata(path: Path, root: Path, pages: int) -> SourceMetadata:
         else "annual"
     )
     stem = path.stem
-    subject = next((item for item in SUBJECTS if item.lower() in stem.lower()), stem)
     medium = None
     if re.search(r"(?:^|_)Bengali(?:_|$)", stem, re.IGNORECASE):
         medium = "Bengali"
@@ -89,6 +89,8 @@ def source_metadata(path: Path, root: Path, pages: int) -> SourceMetadata:
         medium = "English"
     elif stem.lower() in {"bengali", "english"}:
         medium = stem.title()
+    subject_stem = re.sub(r"_(?:Bengali|English)$", "", stem, flags=re.IGNORECASE).strip("_-") or stem
+    subject = next((item for item in SUBJECTS_BY_LENGTH if item.lower() in subject_stem.lower()), subject_stem)
     paper_match = re.search(r"Paper[_ -]?(\d+)", stem, re.IGNORECASE)
     return SourceMetadata(
         source=relative,
