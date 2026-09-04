@@ -1,0 +1,6 @@
+{
+  "name": "Madhyamik Question Papers Archive (2010-2026)",
+  "description": "Comprehensive exam preparation portal and archive for WBBSE Madhyamik Class 10 board question papers from 2010 to 2026.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
