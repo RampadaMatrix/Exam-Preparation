@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="50" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#343a40" text-anchor="middle">PDF to Markdown Processing Pipeline</text>
+  <text x="500" y="80" font-family="Arial, sans-serif" font-size="16" fill="#6c757d" text-anchor="middle">Split &#8594; Snap &#8594; Scan &#8594; Parse</text>
+
+  <!-- Define reusable arrow head -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#495057" />
+    </marker>
+  </defs>
+
+  <!-- 1. Input Source -->
+  <g transform="translate(50, 150)">
+    <rect width="160" height="90" rx="10" fill="#e9ecef" stroke="#ced4da" stroke-width="2"/>
+    <text x="80" y="40" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#212529">Source PDFs</text>
+    <text x="80" y="65" font-family="Arial" font-size="12" text-anchor="middle" fill="#495057">(Chronological Dirs)</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <line x1="210" y1="195" x2="270" y2="195" stroke="#495057" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- 2. Split (Extract Pages) -->
+  <g transform="translate(280, 150)">
+    <rect width="160" height="90" rx="10" fill="#cce5ff" stroke="#b8daff" stroke-width="2"/>
+    <text x="80" y="40" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#004085">1. SPLIT</text>
+    <text x="80" y="65" font-family="Arial" font-size="12" text-anchor="middle" fill="#004085">Read PDF &amp; isolate</text>
+    <text x="80" y="80" font-family="Arial" font-size="12" text-anchor="middle" fill="#004085">individual pages</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <line x1="440" y1="195" x2="500" y2="195" stroke="#495057" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- 3. Snap (Convert to Image) -->
+  <g transform="translate(510, 150)">
+    <rect width="160" height="90" rx="10" fill="#d4edda" stroke="#c3e6cb" stroke-width="2"/>
+    <text x="80" y="40" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#155724">2. SNAP</text>
+    <text x="80" y="65" font-family="Arial" font-size="12" text-anchor="middle" fill="#155724">Render page to</text>
+    <text x="80" y="80" font-family="Arial" font-size="12" text-anchor="middle" fill="#155724">high-res Image</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <line x1="670" y1="195" x2="730" y2="195" stroke="#495057" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- 4. Scan (OCR) -->
+  <g transform="translate(740, 150)">
+    <rect width="160" height="90" rx="10" fill="#fff3cd" stroke="#ffeeba" stroke-width="2"/>
+    <text x="80" y="40" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#856404">3. SCAN</text>
+    <text x="80" y="65" font-family="Arial" font-size="12" text-anchor="middle" fill="#856404">Apply Tesseract OCR</text>
+    <text x="80" y="80" font-family="Arial" font-size="12" text-anchor="middle" fill="#856404">to extract raw text</text>
+  </g>
+
+  <!-- Arrow 4 (Down and left to Parse) -->
+  <path d="M 820 240 L 820 310 L 670 310" fill="none" stroke="#495057" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- 5. Parse (Markdown Gen) -->
+  <g transform="translate(510, 265)">
+    <rect width="160" height="90" rx="10" fill="#f8d7da" stroke="#f5c6cb" stroke-width="2"/>
+    <text x="80" y="40" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#721c24">4. PARSE</text>
+    <text x="80" y="65" font-family="Arial" font-size="12" text-anchor="middle" fill="#721c24">Clean text &amp; Format</text>
+    <text x="80" y="80" font-family="Arial" font-size="12" text-anchor="middle" fill="#721c24">into Markdown</text>
+  </g>
+
+  <!-- Arrow 5 -->
+  <line x1="510" y1="310" x2="440" y2="310" stroke="#495057" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- 6. Output Storage -->
+  <g transform="translate(280, 265)">
+    <rect width="160" height="90" rx="10" fill="#e2e3e5" stroke="#d6d8db" stroke-width="2"/>
+    <text x="80" y="40" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#383d41">Output Files</text>
+    <text x="80" y="65" font-family="Arial" font-size="12" text-anchor="middle" fill="#383d41">Organized .md files</text>
+    <text x="80" y="80" font-family="Arial" font-size="12" text-anchor="middle" fill="#383d41">in output/ dir</text>
+  </g>
+
+  <!-- Dashed Box for the "Pipeline Engine" -->
+  <rect x="250" y="110" width="680" height="280" fill="none" stroke="#6c757d" stroke-width="2" stroke-dasharray="8,4" rx="15"/>
+  <text x="590" y="130" font-family="Arial" font-size="14" font-weight="bold" fill="#6c757d" text-anchor="middle">Python Processing Pipeline Engine</text>
+
+  <!-- Database / File System Icon -->
+  <g transform="translate(100, 310)">
+    <ellipse cx="30" cy="20" rx="30" ry="10" fill="#adb5bd" stroke="#6c757d" stroke-width="2"/>
+    <path d="M 0 20 L 0 60 A 30 10 0 0 0 60 60 L 60 20" fill="#adb5bd" stroke="#6c757d" stroke-width="2"/>
+    <ellipse cx="30" cy="40" rx="30" ry="10" fill="none" stroke="#6c757d" stroke-width="2"/>
+    <text x="30" y="90" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#495057">Storage</text>
+  </g>
+
+  <line x1="280" y1="330" x2="170" y2="330" stroke="#495057" stroke-width="3" marker-end="url(#arrow)"/>
+
+</svg>
