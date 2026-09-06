@@ -2,6 +2,27 @@
 
 Comprehensive collection of previous years' Madhyamik (Class 10) board examination question papers covering **17 examination cycles (2010 to 2026)** across all subjects.
 
+## 5. Markdown reconstructions
+
+The complete 82-PDF corpus has a traceable OCR/Markdown reconstruction under
+[`reconstructed/`](./reconstructed/). Each source PDF has a corresponding
+`paper.md` with physical page boundaries and source-page markers, plus an
+`uncertainties.md` review queue. The machine-readable coverage and page-count
+index is [`corpus_manifest.json`](./reconstructed/corpus_manifest.json), and
+the batch report is [`RECONSTRUCTION_REPORT.md`](./reconstructed/RECONSTRUCTION_REPORT.md).
+
+These are transcription working documents, not silently “cleaned” editions:
+all 82 records are marked `needs_review` because OCR cannot safely resolve
+unclear Bengali glyphs, marks, mathematical/scientific notation, tables, maps,
+or diagrams without checking the original PDF. The original PDFs are unchanged.
+
+For exact filtering, use the [searchable catalog](./catalog/index.html). Its
+CSV and JSON exports are also available as [`catalog/papers.csv`](./catalog/papers.csv)
+and [`catalog/papers.json`](./catalog/papers.json). Individual records point to
+the original PDF and reconstruction; overlapping `2017-2025` compilations are
+shown separately as collections rather than being mislabeled as a specific
+year.
+
 > **Total Downloaded Files:** 82 PDFs  
 > **Total Archive Size:** ~251.4 MB  
 > **Verification Status:** All files verified with valid PDF signatures and complete content.

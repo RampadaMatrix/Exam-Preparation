@@ -1,0 +1,83 @@
+year,year_start,year_end,subject,language,paper,kind,source_pdf,markdown,pages,review
+2010,2010,2010,Bengali,Bengali,Paper 1,individual,2010_2016_Archives/2010/Bengali_Paper_1.pdf,reconstructed/2010/bengali/paper-1/paper.md,3,needs_review
+2010,2010,2010,Bengali,Bengali,Paper 2,individual,2010_2016_Archives/2010/Bengali_Paper_2.pdf,reconstructed/2010/bengali/paper-2/paper.md,5,needs_review
+2010,2010,2010,English,English,—,individual,2010_2016_Archives/2010/English.pdf,reconstructed/2010/english/english/paper.md,6,needs_review
+2010,2010,2010,Geography,English,—,individual,2010_2016_Archives/2010/Geography.pdf,reconstructed/2010/geography/geography/paper.md,4,needs_review
+2010,2010,2010,History,English,—,individual,2010_2016_Archives/2010/History.pdf,reconstructed/2010/history/history/paper.md,4,needs_review
+2010,2010,2010,Life Science,English,—,individual,2010_2016_Archives/2010/Life_Science.pdf,reconstructed/2010/life-science/life-science/paper.md,5,needs_review
+2010,2010,2010,Mathematics,English,—,individual,2010_2016_Archives/2010/Mathematics.pdf,reconstructed/2010/mathematics/mathematics/paper.md,5,needs_review
+2010,2010,2010,Physical Science,English,—,individual,2010_2016_Archives/2010/Physical_Science.pdf,reconstructed/2010/physical-science/physical-science/paper.md,5,needs_review
+2011,2011,2011,Bengali,Bengali,Paper 1,individual,2010_2016_Archives/2011/Bengali_Paper_1.pdf,reconstructed/2011/bengali/paper-1/paper.md,3,needs_review
+2011,2011,2011,Bengali,Bengali,Paper 2,individual,2010_2016_Archives/2011/Bengali_Paper_2.pdf,reconstructed/2011/bengali/paper-2/paper.md,5,needs_review
+2011,2011,2011,English,English,—,individual,2010_2016_Archives/2011/English.pdf,reconstructed/2011/english/english/paper.md,6,needs_review
+2011,2011,2011,Geography,English,—,individual,2010_2016_Archives/2011/Geography.pdf,reconstructed/2011/geography/geography/paper.md,4,needs_review
+2011,2011,2011,History,English,—,individual,2010_2016_Archives/2011/History.pdf,reconstructed/2011/history/history/paper.md,3,needs_review
+2011,2011,2011,Life Science,English,—,individual,2010_2016_Archives/2011/Life_Science.pdf,reconstructed/2011/life-science/life-science/paper.md,4,needs_review
+2011,2011,2011,Mathematics,English,—,individual,2010_2016_Archives/2011/Mathematics.pdf,reconstructed/2011/mathematics/mathematics/paper.md,6,needs_review
+2011,2011,2011,Physical Science,English,—,individual,2010_2016_Archives/2011/Physical_Science.pdf,reconstructed/2011/physical-science/physical-science/paper.md,5,needs_review
+2012,2012,2012,Bengali,Bengali,—,individual,2010_2016_Archives/2012/Bengali.pdf,reconstructed/2012/bengali/bengali/paper.md,6,needs_review
+2012,2012,2012,English,English,—,individual,2010_2016_Archives/2012/English.pdf,reconstructed/2012/english/english/paper.md,8,needs_review
+2012,2012,2012,Geography,English,—,individual,2010_2016_Archives/2012/Geography.pdf,reconstructed/2012/geography/geography/paper.md,4,needs_review
+2012,2012,2012,History,English,—,individual,2010_2016_Archives/2012/History.pdf,reconstructed/2012/history/history/paper.md,4,needs_review
+2012,2012,2012,Life Science,English,—,individual,2010_2016_Archives/2012/Life_Science.pdf,reconstructed/2012/life-science/life-science/paper.md,5,needs_review
+2012,2012,2012,Mathematics,English,—,individual,2010_2016_Archives/2012/Mathematics.pdf,reconstructed/2012/mathematics/mathematics/paper.md,6,needs_review
+2012,2012,2012,Physical Science,English,—,individual,2010_2016_Archives/2012/Physical_Science.pdf,reconstructed/2012/physical-science/physical-science/paper.md,5,needs_review
+2013,2013,2013,Bengali,Bengali,—,individual,2010_2016_Archives/2013/Bengali.pdf,reconstructed/2013/bengali/bengali/paper.md,6,needs_review
+2013,2013,2013,English,English,—,individual,2010_2016_Archives/2013/English.pdf,reconstructed/2013/english/english/paper.md,6,needs_review
+2013,2013,2013,Geography,English,—,individual,2010_2016_Archives/2013/Geography.pdf,reconstructed/2013/geography/geography/paper.md,3,needs_review
+2013,2013,2013,History,English,—,individual,2010_2016_Archives/2013/History.pdf,reconstructed/2013/history/history/paper.md,4,needs_review
+2013,2013,2013,Life Science,English,—,individual,2010_2016_Archives/2013/Life_Science.pdf,reconstructed/2013/life-science/life-science/paper.md,4,needs_review
+2013,2013,2013,Mathematics,English,—,individual,2010_2016_Archives/2013/Mathematics.pdf,reconstructed/2013/mathematics/mathematics/paper.md,4,needs_review
+2013,2013,2013,Physical Science,English,—,individual,2010_2016_Archives/2013/Physical_Science.pdf,reconstructed/2013/physical-science/physical-science/paper.md,4,needs_review
+2014,2014,2014,Bengali,Bengali,—,individual,2010_2016_Archives/2014/Bengali.pdf,reconstructed/2014/bengali/bengali/paper.md,5,needs_review
+2014,2014,2014,English,English,—,individual,2010_2016_Archives/2014/English.pdf,reconstructed/2014/english/english/paper.md,5,needs_review
+2014,2014,2014,Geography,English,—,individual,2010_2016_Archives/2014/Geography.pdf,reconstructed/2014/geography/geography/paper.md,4,needs_review
+2014,2014,2014,History,English,—,individual,2010_2016_Archives/2014/History.pdf,reconstructed/2014/history/history/paper.md,3,needs_review
+2014,2014,2014,Life Science,English,—,individual,2010_2016_Archives/2014/Life_Science.pdf,reconstructed/2014/life-science/life-science/paper.md,4,needs_review
+2014,2014,2014,Mathematics,English,—,individual,2010_2016_Archives/2014/Mathematics.pdf,reconstructed/2014/mathematics/mathematics/paper.md,6,needs_review
+2014,2014,2014,Physical Science,English,—,individual,2010_2016_Archives/2014/Physical_Science.pdf,reconstructed/2014/physical-science/physical-science/paper.md,6,needs_review
+2015,2015,2015,Bengali,Bengali,—,individual,2010_2016_Archives/2015/Bengali.pdf,reconstructed/2015/bengali/bengali/paper.md,6,needs_review
+2015,2015,2015,English,English,—,individual,2010_2016_Archives/2015/English.pdf,reconstructed/2015/english/english/paper.md,7,needs_review
+2015,2015,2015,Geography,English,—,individual,2010_2016_Archives/2015/Geography.pdf,reconstructed/2015/geography/geography/paper.md,4,needs_review
+2015,2015,2015,History,English,—,individual,2010_2016_Archives/2015/History.pdf,reconstructed/2015/history/history/paper.md,4,needs_review
+2015,2015,2015,Life Science,English,—,individual,2010_2016_Archives/2015/Life_Science.pdf,reconstructed/2015/life-science/life-science/paper.md,5,needs_review
+2015,2015,2015,Mathematics,English,—,individual,2010_2016_Archives/2015/Mathematics.pdf,reconstructed/2015/mathematics/mathematics/paper.md,6,needs_review
+2015,2015,2015,Physical Science,English,—,individual,2010_2016_Archives/2015/Physical_Science.pdf,reconstructed/2015/physical-science/physical-science/paper.md,6,needs_review
+2016,2016,2016,Bengali,Bengali,—,individual,2010_2016_Archives/2016/Bengali.pdf,reconstructed/2016/bengali/bengali/paper.md,6,needs_review
+2016,2016,2016,English,English,—,individual,2010_2016_Archives/2016/English.pdf,reconstructed/2016/english/english/paper.md,6,needs_review
+2016,2016,2016,Geography,English,—,individual,2010_2016_Archives/2016/Geography.pdf,reconstructed/2016/geography/geography/paper.md,6,needs_review
+2016,2016,2016,History,English,—,individual,2010_2016_Archives/2016/History.pdf,reconstructed/2016/history/history/paper.md,4,needs_review
+2016,2016,2016,Life Science,English,—,individual,2010_2016_Archives/2016/Life_Science.pdf,reconstructed/2016/life-science/life-science/paper.md,4,needs_review
+2016,2016,2016,Mathematics,English,—,individual,2010_2016_Archives/2016/Mathematics.pdf,reconstructed/2016/mathematics/mathematics/paper.md,5,needs_review
+2016,2016,2016,Physical Science,English,—,individual,2010_2016_Archives/2016/Physical_Science.pdf,reconstructed/2016/physical-science/physical-science/paper.md,5,needs_review
+2017-2025,2017,2025,Bengali,Bengali,—,collection,Compilations_2017_2025/Bengali_2017_2025.pdf,reconstructed/2017-2025/bengali-2017-2025/bengali-2017-2025/paper.md,29,needs_review
+2017-2025,2017,2025,English,English,—,collection,Compilations_2017_2025/English_2017_2025.pdf,reconstructed/2017-2025/english-2017-2025/english-2017-2025/paper.md,38,needs_review
+2017-2025,2017,2025,Geography,English,—,collection,Compilations_2017_2025/Geography_2017_2025.pdf,reconstructed/2017-2025/geography-2017-2025/geography-2017-2025/paper.md,31,needs_review
+2017-2025,2017,2025,History,English,—,collection,Compilations_2017_2025/History_2017_2025.pdf,reconstructed/2017-2025/history-2017-2025/history-2017-2025/paper.md,31,needs_review
+2017-2025,2017,2025,Life Science,English,—,collection,Compilations_2017_2025/Life_Science_2017_2025.pdf,reconstructed/2017-2025/life-science-2017-2025/life-science-2017-2025/paper.md,36,needs_review
+2017-2025,2017,2025,Mathematics,English,—,collection,Compilations_2017_2025/Mathematics_2017_2025.pdf,reconstructed/2017-2025/mathematics-2017-2025/mathematics-2017-2025/paper.md,31,needs_review
+2017-2025,2017,2025,Physical Science,English,—,collection,Compilations_2017_2025/Physical_Science_2017_2025.pdf,reconstructed/2017-2025/physical-science-2017-2025/physical-science-2017-2025/paper.md,31,needs_review
+2025,2025,2025,Bengali,Bengali,—,individual,2025/Bengali.pdf,reconstructed/2025/bengali/bengali/paper.md,8,needs_review
+2025,2025,2025,English,English,—,individual,2025/English.pdf,reconstructed/2025/english/english/paper.md,13,needs_review
+2025,2025,2025,Geography,Bengali,—,individual,2025/Geography_Bengali.pdf,reconstructed/2025/geography/geography-bengali/paper.md,8,needs_review
+2025,2025,2025,Geography,English,—,individual,2025/Geography_English.pdf,reconstructed/2025/geography/geography-english/paper.md,8,needs_review
+2025,2025,2025,History,Bengali,—,individual,2025/History_Bengali.pdf,reconstructed/2025/history/history-bengali/paper.md,8,needs_review
+2025,2025,2025,History,English,—,individual,2025/History_English.pdf,reconstructed/2025/history/history-english/paper.md,8,needs_review
+2025,2025,2025,Life Science,Bengali,—,individual,2025/Life_Science_Bengali.pdf,reconstructed/2025/life-science/life-science-bengali/paper.md,8,needs_review
+2025,2025,2025,Life Science,English,—,individual,2025/Life_Science_English.pdf,reconstructed/2025/life-science/life-science-english/paper.md,8,needs_review
+2025,2025,2025,Mathematics,Bengali,—,individual,2025/Mathematics_Bengali.pdf,reconstructed/2025/mathematics/mathematics-bengali/paper.md,8,needs_review
+2025,2025,2025,Mathematics,English,—,individual,2025/Mathematics_English.pdf,reconstructed/2025/mathematics/mathematics-english/paper.md,8,needs_review
+2025,2025,2025,Physical Science,Bengali,—,individual,2025/Physical_Science_Bengali.pdf,reconstructed/2025/physical-science/physical-science-bengali/paper.md,8,needs_review
+2025,2025,2025,Physical Science,English,—,individual,2025/Physical_Science_English.pdf,reconstructed/2025/physical-science/physical-science-english/paper.md,8,needs_review
+2026,2026,2026,Bengali,Bengali,—,individual,2026/Bengali.pdf,reconstructed/2026/bengali/bengali/paper.md,8,needs_review
+2026,2026,2026,English,English,—,individual,2026/English.pdf,reconstructed/2026/english/english/paper.md,13,needs_review
+2026,2026,2026,Geography,Bengali,—,individual,2026/Geography_Bengali.pdf,reconstructed/2026/geography/geography-bengali/paper.md,8,needs_review
+2026,2026,2026,Geography,English,—,individual,2026/Geography_English.pdf,reconstructed/2026/geography/geography-english/paper.md,8,needs_review
+2026,2026,2026,History,Bengali,—,individual,2026/History_Bengali.pdf,reconstructed/2026/history/history-bengali/paper.md,8,needs_review
+2026,2026,2026,History,English,—,individual,2026/History_English.pdf,reconstructed/2026/history/history-english/paper.md,8,needs_review
+2026,2026,2026,Life Science,Bengali,—,individual,2026/Life_Science_Bengali.pdf,reconstructed/2026/life-science/life-science-bengali/paper.md,8,needs_review
+2026,2026,2026,Life Science,English,—,individual,2026/Life_Science_English.pdf,reconstructed/2026/life-science/life-science-english/paper.md,8,needs_review
+2026,2026,2026,Mathematics,Bengali,—,individual,2026/Mathematics_Bengali.pdf,reconstructed/2026/mathematics/mathematics-bengali/paper.md,8,needs_review
+2026,2026,2026,Mathematics,English,—,individual,2026/Mathematics_English.pdf,reconstructed/2026/mathematics/mathematics-english/paper.md,8,needs_review
+2026,2026,2026,Physical Science,Bengali,—,individual,2026/Physical_Science_Bengali.pdf,reconstructed/2026/physical-science/physical-science-bengali/paper.md,8,needs_review
+2026,2026,2026,Physical Science,English,—,individual,2026/Physical_Science_English.pdf,reconstructed/2026/physical-science/physical-science-english/paper.md,8,needs_review
