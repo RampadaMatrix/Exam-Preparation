@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "ports": {"preview": 3000, "additional": {}},
+  "scripts": {
+    "setup": {
+      "enabled": true,
+      "command": "apt-get update -y && apt-get install -y --no-install-recommends poppler-utils tesseract-ocr tesseract-ocr-ben imagemagick"
+    },
+    "run": {"enabled": true, "command": null},
+    "archive": {"enabled": true, "command": null},
+    "check": {"enabled": true, "command": "python3 tools/validate_reconstruction.py"}
+  },
+  "mcpServers": []
+}
